@@ -10,7 +10,7 @@ How to use ?
 - Change the artifactId in your pom.xml with the project name.
 - Run mvn test, you should get "BUILD SUCCESS".
 - Import the project to eclipse 
-***    File -> Import -> Maven -> Existing Maven Project)
+**    File -> Import -> Maven -> Existing Maven Project)
 - Add all your packages and class files into directory 
 ***    src/main/java
 - Add the source code for test into 
