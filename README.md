@@ -29,7 +29,7 @@ Goals
 * mvn test
 * mvn package
 * mvn install
- 
+
 * mvn site
 * mvn site:run
 
@@ -42,5 +42,5 @@ Based on standard java archetype (maven-quickstart)
 Additions
 ==========
 * Directories:
-** src/main/resources
-** src/test/resources
+  -src/main/resources
+  -src/test/resources
