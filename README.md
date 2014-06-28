@@ -19,3 +19,25 @@ How to use ?
 ...    {project} -> Right click -> Run As -> Maven Build -> {Provide the goal you need to run}
 8. To execute the application directly from eclipse, specify the goal value as
 ...    compile exec:java -Dexec.mainClass="com.example.Class"
+
+
+Goals
+=========
+* mvn clean
+* 
+* mvn compile
+* mvn test
+* mvn package
+* mvn install
+* 
+* mvn site
+* mvn site:run
+
+
+Details
+=========
+Based on standard java archetype (maven-quickstart)
+
+
+Additions
+==========
