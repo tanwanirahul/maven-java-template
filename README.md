@@ -41,6 +41,12 @@ Based on standard java archetype (maven-quickstart)
 
 Additions
 ==========
-* Directories:
-  -src/main/resources
-  -src/test/resources
+1. Directories:
+    * src/main/resources
+    * src/test/resources
+    
+2. Plugins:
+    * Configured compiler plugin to compile the source code for java 7.
+    * Configured checkstyle plugin.
+    * Added findbugs plugin
+    * Added JaCoCo (Java Code Compile) plugin.
