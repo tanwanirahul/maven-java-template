@@ -1,11 +1,14 @@
 package com.hashedin;
 
+import java.util.List;
+
 public class User {
 	private int id;
 	private int age;
 	private String gender;
 	private String occupation;
 	private String zipCode;
+	private List<Integer> ratingIds;
 
 	public int getId() {
 		return id;
@@ -51,6 +54,14 @@ public class User {
 	public String toString() {
 		return "User [id=" + id + ", age=" + age + ", gender=" + gender
 				+ ", occupation=" + occupation + ", zipCode=" + zipCode + "]";
+	}
+
+	public List<Integer> getRatingIds() {
+		return ratingIds;
+	}
+
+	public void setRatingIds(List<Integer> ratingIds) {
+		this.ratingIds = ratingIds;
 	}
 
 }

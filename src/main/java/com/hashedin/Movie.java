@@ -1,5 +1,7 @@
 package com.hashedin;
 
+import java.util.List;
+
 public class Movie {
 	private int id;
 	private String title;
@@ -7,7 +9,8 @@ public class Movie {
 	private String videoReleaseDate;
 	private String imdbUrl;
 	private Genre genre;
-
+	private List<Integer> ratingIds;
+	
 	public int getId() {
 		return id;
 	}
@@ -61,6 +64,14 @@ public class Movie {
 		return "Movies [id=" + id + ", title=" + title + ", releaseDate="
 				+ releaseDate + ", videoReleaseDate=" + videoReleaseDate
 				+ ", imdbUrl=" + imdbUrl + ", genre=" + genre + "]";
+	}
+
+	public List<Integer> getRatingIds() {
+		return ratingIds;
+	}
+
+	public void setRatingIds(List<Integer> ratingIds) {
+		this.ratingIds = ratingIds;
 	}
 
 }
