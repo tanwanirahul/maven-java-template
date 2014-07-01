@@ -2,7 +2,7 @@ package com.hashedin;
 
 public class Rating {
 	private User user;
-	private Movies movies;
+	private Movie movies;
 	private int rating;
 	private long timeStamp;
 
@@ -14,11 +14,11 @@ public class Rating {
 		this.user = user;
 	}
 
-	public Movies getMovies() {
+	public Movie getMovies() {
 		return movies;
 	}
 
-	public void setMovies(Movies movies) {
+	public void setMovies(Movie movies) {
 		this.movies = movies;
 	}
 

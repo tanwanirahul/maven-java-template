@@ -5,7 +5,7 @@ public class User {
 	private int age;
 	private String gender;
 	private String occupation;
-	private int zipCode;
+	private String zipCode;
 
 	public int getId() {
 		return id;
@@ -39,11 +39,11 @@ public class User {
 		this.occupation = occupation;
 	}
 
-	public int getZipCode() {
+	public String getZipCode() {
 		return zipCode;
 	}
 
-	public void setZipCode(int zipCode) {
+	public void setZipCode(String zipCode) {
 		this.zipCode = zipCode;
 	}
 
