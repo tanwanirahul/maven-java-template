@@ -11,13 +11,21 @@ import org.apache.commons.io.IOUtils;
 public class MovieManager {
 
 	Map<Integer, Movie> movieMap = new HashMap<Integer, Movie>();
+	InputStream movieData;
 
-	public void storeMovie(InputStream movieData) throws IOException {
+	public MovieManager(String fileName) throws IOException {
+		this.movieData = getClass().getClassLoader().getResourceAsStream(
+				fileName);
+
+		this.store(movieData);
+	}
+
+	public void store(InputStream movieData) throws IOException {
 
 		List<String> lines = IOUtils.readLines(movieData);
 		for (String line : lines) {
 			Movie movie = parseMovie(line);
-			
+
 			movieMap.put(movie.getId(), movie);
 		}
 	}

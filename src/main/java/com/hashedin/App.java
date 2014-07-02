@@ -12,27 +12,20 @@ import java.util.Map;
  */
 public class App {
 	public static void main(String[] args) throws IOException {
-		MovieManager movieManager = new MovieManager();
-		UserManager userManager = new UserManager();
 
-		InputStream userData = movieManager.getClass().getClassLoader()
-				.getResourceAsStream("user.data");
-		InputStream movieData = movieManager.getClass().getClassLoader()
-				.getResourceAsStream("movie.data");
-		InputStream ratingsData = movieManager.getClass().getClassLoader()
-				.getResourceAsStream("ratings.data");
-
-		userManager.storeUsers(userData);
-		movieManager.storeMovie(movieData);
+		MovieManager movieManager = new MovieManager("movie.data");
+		UserManager userManager = new UserManager("user.data");
 		RatingsManager ratingsManager = new RatingsManager(userManager,
-				movieManager);
-		ratingsManager.storeRatings(ratingsData);
+				movieManager, "ratings.data");
 
-		System.out.println(new MovieWizard().getMostActiveUser(userManager.getUserMap()));
+		MovieWizard movieWizard = new MovieWizard(movieManager.getMovieMap(),
+				userManager.getUserMap(), ratingsManager.getRatingMap());
+
+		System.out.println(movieWizard.getMostActiveUser());
+
+		System.out.println(movieWizard.getMostWatchedMovie());
 		// System.out.println(movieManager.getMovieMap().get(1));
 
 	}
-
-	
 
 }

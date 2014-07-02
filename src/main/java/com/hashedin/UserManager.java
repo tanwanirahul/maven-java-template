@@ -11,8 +11,16 @@ import org.apache.commons.io.IOUtils;
 
 public class UserManager {
 	Map<Integer, User> userMap = new HashMap<Integer, User>();
+	InputStream userData;
 
-	public void storeUsers(InputStream userData) throws IOException {
+	public UserManager(String fileName) throws IOException {
+		this.userData = getClass().getClassLoader().getResourceAsStream(
+				fileName);
+
+		this.store(userData);
+	}
+
+	public void store(InputStream userData) throws IOException {
 		List<String> lines = IOUtils.readLines(userData);
 		for (String line : lines) {
 			User user = parseUser(line);

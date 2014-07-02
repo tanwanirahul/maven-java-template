@@ -12,17 +12,23 @@ public class RatingsManager {
 	Map<Integer, Rating> ratingMap = new HashMap<Integer, Rating>();
 	MovieManager movieManager;
 	UserManager userManager;
+	InputStream ratingsData;
 
-	public RatingsManager(UserManager userManager, MovieManager movieManager) {
+	public RatingsManager(UserManager userManager, MovieManager movieManager,
+			String fileName) throws IOException {
 		this.movieManager = movieManager;
 		this.userManager = userManager;
+		this.ratingsData = getClass().getClassLoader().getResourceAsStream(
+				fileName);
+
+		this.store(ratingsData);
 	}
 
-	public void storeRatings(InputStream ratingsData) throws IOException {
+	public void store(InputStream ratingsData) throws IOException {
 		List<String> lines = IOUtils.readLines(ratingsData);
 		for (String line : lines) {
 			Rating rating = parseRating(line);
-//			System.out.println(rating.toString() + "\n");
+			// System.out.println(rating.toString() + "\n");
 			ratingMap.put(rating.getId(), rating);
 		}
 
