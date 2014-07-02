@@ -108,6 +108,7 @@ public class MovieWizard {
 		return getTopMovie(filteredData);
 	}
 
+	// ----------------FILTERS-------------------------
 	/**
 	 * @param genreName
 	 * @return
