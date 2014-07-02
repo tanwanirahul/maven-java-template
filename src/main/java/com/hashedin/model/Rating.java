@@ -1,4 +1,4 @@
-package com.hashedin;
+package com.hashedin.model;
 
 public class Rating {
 

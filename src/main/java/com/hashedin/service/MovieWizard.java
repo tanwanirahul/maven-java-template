@@ -1,11 +1,15 @@
 /**
  * 
  */
-package com.hashedin;
+package com.hashedin.service;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
+import com.hashedin.model.Movie;
+import com.hashedin.model.Rating;
+import com.hashedin.model.User;
 
 /**
  * @author hasher

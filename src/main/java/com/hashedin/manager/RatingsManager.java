@@ -1,4 +1,4 @@
-package com.hashedin;
+package com.hashedin.manager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -7,6 +7,9 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.io.IOUtils;
+
+import com.hashedin.model.Movie;
+import com.hashedin.model.Rating;
 
 public class RatingsManager {
 	Map<Integer, Rating> ratingMap = new HashMap<Integer, Rating>();

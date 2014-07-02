@@ -1,4 +1,4 @@
-package com.hashedin;
+package com.hashedin.model;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -2,6 +2,11 @@ package com.hashedin;
 
 import java.io.IOException;
 
+import com.hashedin.manager.MovieManager;
+import com.hashedin.manager.RatingsManager;
+import com.hashedin.manager.UserManager;
+import com.hashedin.service.MovieWizard;
+
 /**
  * Hello world!
  *

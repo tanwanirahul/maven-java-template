@@ -1,4 +1,4 @@
-package com.hashedin;
+package com.hashedin.manager;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +8,8 @@ import java.util.Map;
 import java.util.StringTokenizer;
 
 import org.apache.commons.io.IOUtils;
+
+import com.hashedin.model.User;
 
 public class UserManager {
 	Map<Integer, User> userMap = new HashMap<Integer, User>();
