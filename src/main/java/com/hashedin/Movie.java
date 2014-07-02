@@ -9,7 +9,6 @@ public class Movie {
 	private String releaseDate;
 	private String videoReleaseDate;
 	private String imdbUrl;
-	private Genre genre;
 	private List<Integer> ratingIds = new ArrayList<Integer>();
 
 	public int getId() {
@@ -52,14 +51,6 @@ public class Movie {
 		this.imdbUrl = imdbUrl;
 	}
 
-	public Genre getGenre() {
-		return genre;
-	}
-
-	public void setGenre(Genre genre) {
-		this.genre = genre;
-	}
-
 	public List<Integer> getRatingIds() {
 		return ratingIds;
 	}
@@ -72,8 +63,8 @@ public class Movie {
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", releaseDate="
 				+ releaseDate + ", videoReleaseDate=" + videoReleaseDate
-				+ ", imdbUrl=" + imdbUrl + ", genre=" + genre + ", ratingIds="
-				+ ratingIds + "]"+ ratingIds.size()	;
+				+ ", imdbUrl=" + imdbUrl + ", ratingIds=" + ratingIds + "]"
+				+ ratingIds.size();
 	}
 
 }

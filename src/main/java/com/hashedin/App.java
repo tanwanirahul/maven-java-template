@@ -1,10 +1,6 @@
 package com.hashedin;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Hello world!
@@ -24,6 +20,8 @@ public class App {
 		System.out.println(movieWizard.getMostActiveUser());
 
 		System.out.println(movieWizard.getMostWatchedMovie());
+		
+		System.out.println(movieManager.getGenreMap().get(Constants.action).toString());
 		// System.out.println(movieManager.getMovieMap().get(1));
 
 	}

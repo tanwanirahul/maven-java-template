@@ -27,14 +27,14 @@ public class RatingsManager {
 	public void store(InputStream ratingsData) throws IOException {
 		List<String> lines = IOUtils.readLines(ratingsData);
 		for (String line : lines) {
-			Rating rating = parseRating(line);
+			Rating rating = parse(line);
 			// System.out.println(rating.toString() + "\n");
 			ratingMap.put(rating.getId(), rating);
 		}
 
 	}
 
-	private Rating parseRating(String line) {
+	private Rating parse(String line) {
 		Rating rating = new Rating();
 		rating.setId(ratingMap.size() + 1);
 		String[] tokens = line.split("\\s+");

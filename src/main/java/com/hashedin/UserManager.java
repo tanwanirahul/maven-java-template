@@ -23,13 +23,13 @@ public class UserManager {
 	public void store(InputStream userData) throws IOException {
 		List<String> lines = IOUtils.readLines(userData);
 		for (String line : lines) {
-			User user = parseUser(line);
+			User user = parse(line);
 			userMap.put(user.getId(), user);
 
 		}
 	}
 
-	private User parseUser(String line) {
+	private User parse(String line) {
 		StringTokenizer tokenizer = new StringTokenizer(line, "|");
 		User user = new User();
 		user.setId(Integer.parseInt(tokenizer.nextToken()));

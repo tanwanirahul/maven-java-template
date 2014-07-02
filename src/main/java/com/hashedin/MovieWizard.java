@@ -45,4 +45,10 @@ public class MovieWizard {
 		return movieMap.get(id);
 	}
 
+	public String getMostWarchedGenre() {
+		
+		return null;
+	}
+//	public List<Movie> filterMovieByGenre(List<Movie>,)
+
 }
