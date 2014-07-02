@@ -4,6 +4,7 @@
 package com.hashedin;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -51,38 +52,80 @@ public class MovieWizard {
 	}
 
 	public Movie getTopMovieByGenre(int genreId) {
-		List<Integer> filteredData = filterMoviesByGenre(movieMap, genreId);
-		double max=0;
-		int id=0;
-		for (Integer movieId : filteredData) {
-			if(movieMap.get(movieId).getAvgRating()>max){
-				max=movieMap.get(movieId).getAvgRating();
-				id=movieMap.get(movieId).getId();
+		List<Movie> filteredData = filterMoviesByGenre(genreId);
+		double max = 0;
+		int id = 0;
+		for (Movie movie : filteredData) {
+			int movieId = movie.getId();
+			if (movieMap.get(movieId).getAvgRating() > max) {
+				max = movieMap.get(movieId).getAvgRating();
+				id = movieMap.get(movieId).getId();
 			}
 		}
 
 		return movieMap.get(id);
 	}
 
-	public Movie getTopMovieByYear(int year){
-		
+	public Movie getTopMovieByYear(int year) {
+		List<Movie> movieList=new ArrayList<Movie>(movieMap.values());
+		List<Movie> filteredData = filterMoviesByYear(movieList, year);
+		double max = 0;
+		int id = 0;
+		for (Movie movie : filteredData) {
+			int movieId = movie.getId();
+			if (movieMap.get(movieId).getAvgRating() > max) {
+				max = movieMap.get(movieId).getAvgRating();
+				id = movieMap.get(movieId).getId();
+			}
+		}
+		return movieMap.get(id);
+
 	}
+
+	public Movie getTopMovieByYearAndGenre(int year, int genre) {
+		List<Movie> filteredData = filterMoviesByGenre(genre);
+		filteredData = filterMoviesByYear(filteredData, year);
+
+		double max = 0;
+		int id = 0;
+		for (Movie movie : filteredData) {
+			int movieId = movie.getId();
+			if (movieMap.get(movieId).getAvgRating() > max) {
+				max = movieMap.get(movieId).getAvgRating();
+				id = movieMap.get(movieId).getId();
+			}
+		}
+		return movieMap.get(id);
+
+	}
+
 	// public List<Movie> filterMovieByGenre(List<Movie>,)
 
-	private List<Integer> filterMoviesByGenre(Map<Integer, Movie> initialData,
-			int genreName) {
+	private List<Movie> filterMoviesByGenre(int genreName) {
 
 		List<Integer> movieIds = genreMap.get(genreName);
-		List<Integer> filteredList = new ArrayList<Integer>();
+		List<Movie> filteredList = new ArrayList<Movie>();
+
 		for (Integer movieId : movieIds) {
-			filteredList.add(movieId);
+			filteredList.add(movieMap.get(movieId));
 		}
 		return filteredList;
 	}
-	
-	private List<Integer> filterMoviesByYear(Map<Integer, Movie> initialData,
-			int year){
-		
+
+	private List<Movie> filterMoviesByYear(List<Movie> initialData, int year) {
+		List<Movie> filteredList = new ArrayList<Movie>();
+
+		for (Movie movie : initialData) {
+			String releaseDate = movie.getReleaseDate();
+			if (releaseDate.length() > 0) {
+				int yearFromText = Integer.parseInt(releaseDate
+						.substring(releaseDate.length() - 4));
+				if (yearFromText == year) {
+					filteredList.add(movie);
+				}
+			}
+		}
+		return filteredList;
 	}
 
 }
