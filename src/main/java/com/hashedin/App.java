@@ -15,14 +15,18 @@ public class App {
 				movieManager, "ratings.data");
 
 		MovieWizard movieWizard = new MovieWizard(movieManager.getMovieMap(),
-				userManager.getUserMap(), ratingsManager.getRatingMap());
+				movieManager.getGenreMap(), userManager.getUserMap(),
+				ratingsManager.getRatingMap());
 
 		System.out.println(movieWizard.getMostActiveUser());
 
 		System.out.println(movieWizard.getMostWatchedMovie());
 		
-		System.out.println(movieManager.getGenreMap().get(Constants.action).toString());
-		// System.out.println(movieManager.getMovieMap().get(1));
+		System.out.println(movieWizard.getTopMovieByGenre(Constants.comedy));
+		
+		// System.out.println(movieManager.getGenreMap().get(Constants.action)
+		// .toString());
+		// System.out.println(movieManager.getMovieMap().get(709).getAvgRating());
 
 	}
 

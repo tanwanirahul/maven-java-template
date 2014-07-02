@@ -39,6 +39,7 @@ public class MovieManager {
 		movie.setReleaseDate(tokens[2]);
 		movie.setVideoReleaseDate(tokens[3]);
 		movie.setImdbUrl(tokens[4]);
+		movie.setAvgRating(0);
 		setGenre(tokens, movie.getId());
 		// movie.setGenre(genre);
 		return movie;

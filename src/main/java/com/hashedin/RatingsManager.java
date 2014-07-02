@@ -35,19 +35,37 @@ public class RatingsManager {
 	}
 
 	private Rating parse(String line) {
-		Rating rating = new Rating();
-		rating.setId(ratingMap.size() + 1);
+
 		String[] tokens = line.split("\\s+");
+
 		int userId = Integer.parseInt(tokens[0]);
 		int movieId = Integer.parseInt(tokens[1]);
 		int rate = Integer.parseInt(tokens[2]);
 		long timeStamp = Long.parseLong(tokens[3]);
+
+		Rating rating = new Rating();
+		rating.setId(ratingMap.size() + 1);
 		rating.setRating(rate);
 		rating.setTimeStamp(timeStamp);
+
 		userManager.getUserMap().get(userId).getRatingIds().add(rating.getId());
+		movieManager.getMovieMap().get(movieId)
+				.setAvgRating(getAverageRating(movieId, rate));
 		movieManager.getMovieMap().get(movieId).getRatingIds()
 				.add(rating.getId());
+
 		return rating;
+	}
+
+	private double getAverageRating(int movieId, int rate) {
+		Map<Integer, Movie> movieMap = movieManager.getMovieMap();
+
+		double avgRate = movieMap.get(movieId).getAvgRating();
+
+		int noOfRating = movieMap.get(movieId).getRatingIds().size();
+
+		return ((avgRate * noOfRating) + rate) / (noOfRating + 1);
+
 	}
 
 	public Map<Integer, Rating> getRatingMap() {

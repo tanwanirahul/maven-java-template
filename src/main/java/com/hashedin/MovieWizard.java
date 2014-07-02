@@ -3,6 +3,8 @@
  */
 package com.hashedin;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -13,12 +15,15 @@ public class MovieWizard {
 	Map<Integer, Movie> movieMap;
 	Map<Integer, User> userMap;
 	Map<Integer, Rating> ratingMap;
+	Map<Integer, List<Integer>> genreMap;
 
 	public MovieWizard(Map<Integer, Movie> movieMap,
-			Map<Integer, User> userMap, Map<Integer, Rating> ratingMap) {
+			Map<Integer, List<Integer>> genreMap, Map<Integer, User> userMap,
+			Map<Integer, Rating> ratingMap) {
 		this.movieMap = movieMap;
 		this.userMap = userMap;
 		this.ratingMap = ratingMap;
+		this.genreMap = genreMap;
 	}
 
 	public User getMostActiveUser() {
@@ -45,10 +50,39 @@ public class MovieWizard {
 		return movieMap.get(id);
 	}
 
-	public String getMostWarchedGenre() {
-		
-		return null;
+	public Movie getTopMovieByGenre(int genreId) {
+		List<Integer> filteredData = filterMoviesByGenre(movieMap, genreId);
+		double max=0;
+		int id=0;
+		for (Integer movieId : filteredData) {
+			if(movieMap.get(movieId).getAvgRating()>max){
+				max=movieMap.get(movieId).getAvgRating();
+				id=movieMap.get(movieId).getId();
+			}
+		}
+
+		return movieMap.get(id);
 	}
-//	public List<Movie> filterMovieByGenre(List<Movie>,)
+
+	public Movie getTopMovieByYear(int year){
+		
+	}
+	// public List<Movie> filterMovieByGenre(List<Movie>,)
+
+	private List<Integer> filterMoviesByGenre(Map<Integer, Movie> initialData,
+			int genreName) {
+
+		List<Integer> movieIds = genreMap.get(genreName);
+		List<Integer> filteredList = new ArrayList<Integer>();
+		for (Integer movieId : movieIds) {
+			filteredList.add(movieId);
+		}
+		return filteredList;
+	}
+	
+	private List<Integer> filterMoviesByYear(Map<Integer, Movie> initialData,
+			int year){
+		
+	}
 
 }

@@ -10,6 +10,7 @@ public class Movie {
 	private String videoReleaseDate;
 	private String imdbUrl;
 	private List<Integer> ratingIds = new ArrayList<Integer>();
+	private double avgRating;
 
 	public int getId() {
 		return id;
@@ -59,12 +60,20 @@ public class Movie {
 		this.ratingIds = ratingIds;
 	}
 
+	public double getAvgRating() {
+		return avgRating;
+	}
+
+	public void setAvgRating(double rating) {
+		this.avgRating = rating;
+	}
+
 	@Override
 	public String toString() {
 		return "Movie [id=" + id + ", title=" + title + ", releaseDate="
 				+ releaseDate + ", videoReleaseDate=" + videoReleaseDate
-				+ ", imdbUrl=" + imdbUrl + ", ratingIds=" + ratingIds + "]"
-				+ ratingIds.size();
+				+ ", imdbUrl=" + imdbUrl + ", ratingIds=" + ratingIds
+				+ ", rating=" + avgRating + "]";
 	}
 
 }
