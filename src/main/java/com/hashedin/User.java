@@ -1,5 +1,6 @@
 package com.hashedin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -8,7 +9,7 @@ public class User {
 	private String gender;
 	private String occupation;
 	private String zipCode;
-	private List<Integer> ratingIds;
+	private List<Integer> ratingIds = new ArrayList<Integer>();
 
 	public int getId() {
 		return id;

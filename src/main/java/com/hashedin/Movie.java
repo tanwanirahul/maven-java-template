@@ -1,5 +1,6 @@
 package com.hashedin;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Movie {
@@ -9,8 +10,8 @@ public class Movie {
 	private String videoReleaseDate;
 	private String imdbUrl;
 	private Genre genre;
-	private List<Integer> ratingIds;
-	
+	private List<Integer> ratingIds = new ArrayList<Integer>();
+
 	public int getId() {
 		return id;
 	}

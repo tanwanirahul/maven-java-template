@@ -1,10 +1,8 @@
 package com.hashedin;
 
 public class Rating {
-	static int id;
-	static {
-		id = 1;
-	}
+	
+	private int id;
 	private int rating;
 	private long timeStamp;
 
@@ -27,6 +25,14 @@ public class Rating {
 	@Override
 	public String toString() {
 		return "Rating [rating=" + rating + ", timeStamp=" + timeStamp + "]";
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 }
