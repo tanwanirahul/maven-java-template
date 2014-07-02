@@ -26,7 +26,7 @@ public class App {
 		
 		System.out.println(movieWizard.getTopMovieByYear(1994));
 		
-		System.out.println(movieWizard.getTopMovieByYearAndGenre(1990, Constants.comedy));
+		System.out.println(movieWizard.getTopMovieByYearAndGenre(1990, Constants.crime));
 		
 		
 		// System.out.println(movieManager.getGenreMap().get(Constants.action)

@@ -57,6 +57,14 @@ public class RatingsManager {
 		return rating;
 	}
 
+	
+	/**
+	 * Get the average rating of the movie calculated on the previous rates
+	 * 
+	 * @param movieId
+	 * @param rate
+	 * @return
+	 */
 	private double getAverageRating(int movieId, int rate) {
 		Map<Integer, Movie> movieMap = movieManager.getMovieMap();
 

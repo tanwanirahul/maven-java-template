@@ -4,7 +4,6 @@
 package com.hashedin;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -18,6 +17,12 @@ public class MovieWizard {
 	Map<Integer, Rating> ratingMap;
 	Map<Integer, List<Integer>> genreMap;
 
+	/**
+	 * @param movieMap
+	 * @param genreMap
+	 * @param userMap
+	 * @param ratingMap
+	 */
 	public MovieWizard(Map<Integer, Movie> movieMap,
 			Map<Integer, List<Integer>> genreMap, Map<Integer, User> userMap,
 			Map<Integer, Rating> ratingMap) {
@@ -27,6 +32,11 @@ public class MovieWizard {
 		this.genreMap = genreMap;
 	}
 
+	/**
+	 * Gets Most active User(who Rates the most)
+	 * 
+	 * @return
+	 */
 	public User getMostActiveUser() {
 		int maxLength = 0;
 		int userId = 0;
@@ -39,6 +49,11 @@ public class MovieWizard {
 		return userMap.get(userId);
 	}
 
+	/**
+	 * Gets the most watched movie
+	 * 
+	 * @return
+	 */
 	public Movie getMostWatchedMovie() {
 		int maxLength = 0;
 		int id = 0;
@@ -51,56 +66,48 @@ public class MovieWizard {
 		return movieMap.get(id);
 	}
 
+	/**
+	 * gets top movie filtered by genre
+	 * 
+	 * @param genreId
+	 * @return
+	 */
 	public Movie getTopMovieByGenre(int genreId) {
 		List<Movie> filteredData = filterMoviesByGenre(genreId);
-		double max = 0;
-		int id = 0;
-		for (Movie movie : filteredData) {
-			int movieId = movie.getId();
-			if (movieMap.get(movieId).getAvgRating() > max) {
-				max = movieMap.get(movieId).getAvgRating();
-				id = movieMap.get(movieId).getId();
-			}
-		}
-
-		return movieMap.get(id);
+		return getTopMovie(filteredData);
 	}
 
+	/**
+	 * gets top movie filtered by year
+	 * 
+	 * @param year
+	 * @return
+	 */
 	public Movie getTopMovieByYear(int year) {
-		List<Movie> movieList=new ArrayList<Movie>(movieMap.values());
+		List<Movie> movieList = new ArrayList<Movie>(movieMap.values());
 		List<Movie> filteredData = filterMoviesByYear(movieList, year);
-		double max = 0;
-		int id = 0;
-		for (Movie movie : filteredData) {
-			int movieId = movie.getId();
-			if (movieMap.get(movieId).getAvgRating() > max) {
-				max = movieMap.get(movieId).getAvgRating();
-				id = movieMap.get(movieId).getId();
-			}
-		}
-		return movieMap.get(id);
+		return getTopMovie(filteredData);
 
 	}
 
+	/**
+	 * gets top movie filtered by genre and year
+	 * 
+	 * @param year
+	 * @param genre
+	 * @return
+	 */
 	public Movie getTopMovieByYearAndGenre(int year, int genre) {
 		List<Movie> filteredData = filterMoviesByGenre(genre);
 		filteredData = filterMoviesByYear(filteredData, year);
 
-		double max = 0;
-		int id = 0;
-		for (Movie movie : filteredData) {
-			int movieId = movie.getId();
-			if (movieMap.get(movieId).getAvgRating() > max) {
-				max = movieMap.get(movieId).getAvgRating();
-				id = movieMap.get(movieId).getId();
-			}
-		}
-		return movieMap.get(id);
-
+		return getTopMovie(filteredData);
 	}
 
-	// public List<Movie> filterMovieByGenre(List<Movie>,)
-
+	/**
+	 * @param genreName
+	 * @return
+	 */
 	private List<Movie> filterMoviesByGenre(int genreName) {
 
 		List<Integer> movieIds = genreMap.get(genreName);
@@ -112,6 +119,11 @@ public class MovieWizard {
 		return filteredList;
 	}
 
+	/**
+	 * @param initialData
+	 * @param year
+	 * @return
+	 */
 	private List<Movie> filterMoviesByYear(List<Movie> initialData, int year) {
 		List<Movie> filteredList = new ArrayList<Movie>();
 
@@ -126,6 +138,23 @@ public class MovieWizard {
 			}
 		}
 		return filteredList;
+	}
+
+	/**
+	 * @param filteredData
+	 * @return
+	 */
+	private Movie getTopMovie(List<Movie> filteredData) {
+		double max = 0;
+		int id = 0;
+		for (Movie movie : filteredData) {
+			int movieId = movie.getId();
+			if (movieMap.get(movieId).getAvgRating() > max) {
+				max = movieMap.get(movieId).getAvgRating();
+				id = movieMap.get(movieId).getId();
+			}
+		}
+		return movieMap.get(id);
 	}
 
 }
