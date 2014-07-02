@@ -17,7 +17,7 @@ public class MovieManager {
 		List<String> lines = IOUtils.readLines(movieData);
 		for (String line : lines) {
 			Movie movie = parseMovie(line);
-			System.out.println(movie.toString() + "\n");
+			
 			movieMap.put(movie.getId(), movie);
 		}
 	}

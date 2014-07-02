@@ -51,18 +51,19 @@ public class User {
 		this.zipCode = zipCode;
 	}
 
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", age=" + age + ", gender=" + gender
-				+ ", occupation=" + occupation + ", zipCode=" + zipCode + "]";
-	}
-
 	public List<Integer> getRatingIds() {
 		return ratingIds;
 	}
 
 	public void setRatingIds(List<Integer> ratingIds) {
 		this.ratingIds = ratingIds;
+	}
+
+	@Override
+	public String toString() {
+		return "User [id=" + id + ", age=" + age + ", gender=" + gender
+				+ ", occupation=" + occupation + ", zipCode=" + zipCode
+				+ ", ratingIds=" + ratingIds + "]" + ratingIds.size();
 	}
 
 }

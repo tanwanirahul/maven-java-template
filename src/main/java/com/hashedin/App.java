@@ -2,6 +2,9 @@ package com.hashedin;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.Map;
 
 /**
  * Hello world!
@@ -9,7 +12,6 @@ import java.io.InputStream;
  */
 public class App {
 	public static void main(String[] args) throws IOException {
-
 		MovieManager movieManager = new MovieManager();
 		UserManager userManager = new UserManager();
 
@@ -25,9 +27,12 @@ public class App {
 		RatingsManager ratingsManager = new RatingsManager(userManager,
 				movieManager);
 		ratingsManager.storeRatings(ratingsData);
-		
-		
+
+		System.out.println(new MovieWizard().getMostActiveUser(userManager.getUserMap()));
+		// System.out.println(movieManager.getMovieMap().get(1));
 
 	}
+
 	
+
 }

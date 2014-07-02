@@ -22,6 +22,7 @@ public class RatingsManager {
 		List<String> lines = IOUtils.readLines(ratingsData);
 		for (String line : lines) {
 			Rating rating = parseRating(line);
+//			System.out.println(rating.toString() + "\n");
 			ratingMap.put(rating.getId(), rating);
 		}
 

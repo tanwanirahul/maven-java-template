@@ -60,19 +60,20 @@ public class Movie {
 		this.genre = genre;
 	}
 
-	@Override
-	public String toString() {
-		return "Movies [id=" + id + ", title=" + title + ", releaseDate="
-				+ releaseDate + ", videoReleaseDate=" + videoReleaseDate
-				+ ", imdbUrl=" + imdbUrl + ", genre=" + genre + "]";
-	}
-
 	public List<Integer> getRatingIds() {
 		return ratingIds;
 	}
 
 	public void setRatingIds(List<Integer> ratingIds) {
 		this.ratingIds = ratingIds;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", title=" + title + ", releaseDate="
+				+ releaseDate + ", videoReleaseDate=" + videoReleaseDate
+				+ ", imdbUrl=" + imdbUrl + ", genre=" + genre + ", ratingIds="
+				+ ratingIds + "]"+ ratingIds.size()	;
 	}
 
 }
